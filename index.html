@@ -3,98 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
     <script src="js/echarts.min.js"></script>
 </head>
 <body>
-
-<div id="box1" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
-<div id="box2" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
+<div class="chart-wrapper fl">
+    <span class="tit">备案情况</span>  
+    <div id="box1" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
+</div>
+<div class="chart-wrapper fr">
+    <span class="tit">在售设备类型比例</span>
+    <div id="box2" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
+</div>
+<div class="chart-wrapper fl" style="clear:both;">
+    <span class="tit">经营主体总量排名TOP5</span>
+    <div id="box3" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
+</div>
+<div class="chart-wrapper fr">
+    <span class="tit">近半年新增主体曲线图</span>
+    <div id="box4" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
+</div>
 <!--//装载数据表的容器-->
 
 
-<script type="text/javascript">
-    var myChart1 = echarts.init(document.getElementById('box1')) //获取装载数据表的容器
-
-    option1 = {
-        title: {
-            text: '备案情况'
-        },
-        legend: {
-            data: ['新增', '撤销', '注销']
-        },
-        xAxis: {
-            type: 'category',
-            data: ['贵州', '广东', '福建', '河北', '四川', '新疆', '辽宁', '湖北']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            name: '新增',
-            data: [7900, 6100, 4200, 4100, 4100, 3500, 3000],
-            type: 'bar'
-        },{
-            name: '撤销',
-            data: [0, 0, 0, 0, 0, 0, 0],
-            type: 'bar'
-        },{
-            name: '注销',
-            data: [0, 0, 0, 0, 0, 0, 0],
-            type: 'bar'
-        }]
-    };
-
-    var myChart2 = echarts.init(document.getElementById('box2'))
-    option2 = {
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
-        },
-        legend: {
-            orient: 'vertical',
-            x: 'left',
-            data:['2.4GHz频段无线局域网设备','蓝牙设备(发射功率大于10mW)','TD-LTE终端','LTE FDD终端']
-        },
-        series: [
-            {
-                name:'访问来源',
-                type:'pie',
-                radius: ['50%', '70%'],
-                avoidLabelOverlap: false,
-                label: {
-                    normal: {
-                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                        show: false,
-                        position: 'center'
-                    },
-                    emphasis: {
-                        show: true,
-                        textStyle: {
-                            fontSize: '30',
-                            fontWeight: 'bold'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                data:[
-                    {value:335, name:'2.4GHz频段无线局域网设备'},
-                    {value:310, name:'蓝牙设备(发射功率大于10mW)'},
-                    {value:234, name:'TD-LTE终端'},
-                    {value:135, name:'LTE FDD终端'}
-                ]
-            }
-        ]
-    };
-
-
-
-    myChart1.setOption(option1)//把echarts配置项启动
-    myChart2.setOption(option2)
-
-</script>
+<script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
