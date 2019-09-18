@@ -218,15 +218,18 @@ var option5 = {
         bottom: '3%',
         containLabel: true
     },
+    // xAxis: {
+    //     type: 'value',
+    //     axisLine: {
+    //         show: false
+    //     },
+    //     axisTick: {
+    //         show: false
+    //     }
+    // },
     xAxis: {
-        type: 'value',
-        axisLine: {
-            show: false
+            show : false, //设置为true时候显示
         },
-        axisTick: {
-            show: false
-        }
-    },
     yAxis: {
         type: 'category',
         data: category,
@@ -259,6 +262,15 @@ var option5 = {
                         color: '#F68300',
                         fontSize: 13
                     }
+                    // color: function(params) {
+                    //     // build a color map as your need.
+                    //     var colorList = [
+                    //         '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                    //         '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                    //         '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+                    //     ];
+                    //     return colorList[params.dataIndex]
+                    // }
                 }
             },
             itemStyle: {
@@ -267,14 +279,16 @@ var option5 = {
                 },
                 normal: {
                     barBorderRadius: 7,
-                    color: new echarts.graphic.LinearGradient(
-                        0, 0, 1, 0,
-                        [
-                            {offset: 0, color: '#3977E6'},
-                            {offset: 1, color: '#37BBF8'}
-
-                        ]
-                    )
+                    //每个柱子的颜色即为colorList数组里的每一项，如果柱子数目多于colorList的长度，则柱子颜色循环使用该数组
+                    color: function(params) {
+                        // build a color map as your need.
+                        var colorList = [
+                            '#B5C334','#FCCE10','#E87C25',
+                            '#FE8463','#FAD860','#F3A43B','#60C0DD',
+                            '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+                        ];
+                        return colorList[params.dataIndex]
+                    }
                 }
             }
         }
