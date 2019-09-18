@@ -7,6 +7,9 @@
 .chart-wrapper{
     overflow: hidden;
     box-shadow: -1px 4px 3px 1px #abaaaa;
+    position: relative;
+    z-index: 9;
+    background: #ffffff;
 }
 
 .chart-wrapper span{
