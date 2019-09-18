@@ -196,17 +196,7 @@ option4 = {
         },
         smooth: true,
         areaStyle: {}
-    }],
-    // visualMap: {
-    //     show: false,
-    //     dimension: 0,
-    //     pieces: [
-    //         {gte:0,lte:6,color:'#f8b5cc'}
-    //     ],  //pieces的值由动态数据决定
-    //     outOfRange: {
-    //         color: 'red'
-    //     }
-    // }
+    }]
 };
 
 var myChart5 = echarts.init(document.getElementById('box5'));//获取装载数据表的容器
@@ -291,10 +281,76 @@ var option5 = {
     ]
 };
 
+var myChart6 = echarts.init(document.getElementById('box6')) //获取装载数据表的容器
 
+option6 = {
+    title: {
+        text: ''
+    },
+
+    xAxis: {
+        type: 'category',
+        data: [
+            '贵州', '广东', '福建', '河北', '四川',
+            '贵州2', '广东2', '福建2', '河北2', '四川2',
+            '贵州3', '广东3', '福建3', '河北3', '四川3',
+            '贵州4', '广东4', '福建4', '河北4', '四川4'
+
+        ],
+        axisLabel: {
+            interval: 0,
+            rotate: 45,
+            //倾斜度 -90 至 90 默认为0  
+            margin: 10,
+            // textStyle: {
+            //     fontWeight: "bolder",
+            //     color: "#000000"
+            // }
+        }
+    },
+    yAxis: {
+        // name: '个数',
+        type: 'value'
+    },
+    // label: {
+    //     show: true,//是否展示
+    //     position: 'top',//在顶端
+    //     textStyle: {
+    //         fontWeight: 'bolder',
+    //         fontSize: '12',
+    //         fontFamily: '微软雅黑',
+    //         // color: 'black'
+    //     }
+    // },
+    series: [{
+        name: '新增',
+        data: [
+            7900, 6100, 4200, 4100, 4100,
+            7900, 6100, 4200, 4100, 4100,
+            7900, 6100, 4200, 4100, 4100,
+            7900, 6100, 4200, 4100, 4100
+        ],
+        // barMaxWidth:30,//最大宽度
+        itemStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1,
+                    [
+                        {offset: 0, color: '#83bff6'},
+                        {offset: 0.5, color: '#188df0'},
+                        {offset: 1, color: '#188df0'}
+                    ]
+                )
+            }
+        },
+        type: 'bar',
+        stack: 'barStack'
+    }]
+};
 
 myChart1.setOption(option1)//把echarts配置项启动
 myChart2.setOption(option2)
 myChart3.setOption(option3)
 myChart4.setOption(option4)
 myChart5.setOption(option5)
+myChart6.setOption(option6)
