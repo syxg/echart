@@ -196,8 +196,92 @@ option4 = {
     }
 };
 
+var myChart5 = echarts.init(document.getElementById('box5'));//获取装载数据表的容器
+
+//初始化数据
+var category = ['NO.5福建省', 'NO.4四川省', 'NO.3湖北省', 'NO.2陕西省', 'NO.1贵州省'];
+var barData = [26, 26, 30, 71, 76];
+
+var option5 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        }
+    },
+    yAxis: {
+        type: 'category',
+        data: category,
+        splitLine: {show: false},
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        offset: 10,
+        nameTextStyle: {
+            fontSize: 15
+        }
+    },
+    series: [
+        {
+            name: '数量',
+            type: 'bar',
+            data: barData,
+            barWidth: 14,
+            barGap: 10,
+            smooth: true,
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    offset: [5, -2],
+                    textStyle: {
+                        color: '#F68300',
+                        fontSize: 13
+                    }
+                }
+            },
+            itemStyle: {
+                emphasis: {
+                    barBorderRadius: 7
+                },
+                normal: {
+                    barBorderRadius: 7,
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 1, 0,
+                        [
+                            {offset: 0, color: '#3977E6'},
+                            {offset: 1, color: '#37BBF8'}
+
+                        ]
+                    )
+                }
+            }
+        }
+    ]
+};
+
+
 
 myChart1.setOption(option1)//把echarts配置项启动
 myChart2.setOption(option2)
 myChart3.setOption(option3)
 myChart4.setOption(option4)
+myChart5.setOption(option5)
