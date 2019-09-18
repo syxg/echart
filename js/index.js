@@ -172,10 +172,23 @@ option4 = {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
         type: 'line',
         symbol: 'circle',//折线点设置为实心点
-        symbolSize: 5,   //折线点的大小
+        symbolSize: 10,   //折线点的大小
         itemStyle: {
             normal: {
-                color: "red",//折线点的颜色
+                color: {
+                    type: 'radial',
+                    x: 0,
+                    y: 0,
+                    r: 0.8,
+                    colorStops: [{
+                        offset: 0, color: '#ff578f' // 0% 处的颜色
+                    }, {
+                        offset: 0.5, color: '#ff578f' // 100% 处的颜色
+                    }, {
+                        offset: 1, color: '#f897c1' // 100% 处的颜色
+                    }],
+                    global: true // 缺省为 false
+                },//折线点的颜色
                 lineStyle: {
                     color: "#ff5890"//折线的颜色
                 }
@@ -184,16 +197,16 @@ option4 = {
         smooth: true,
         areaStyle: {}
     }],
-    visualMap: {
-        show: false,
-        dimension: 0,
-        pieces: [
-            {gte:0,lte:6,color:'#f8b5cc'}
-        ],  //pieces的值由动态数据决定
-        outOfRange: {
-            color: 'red'
-        }
-    }
+    // visualMap: {
+    //     show: false,
+    //     dimension: 0,
+    //     pieces: [
+    //         {gte:0,lte:6,color:'#f8b5cc'}
+    //     ],  //pieces的值由动态数据决定
+    //     outOfRange: {
+    //         color: 'red'
+    //     }
+    // }
 };
 
 
