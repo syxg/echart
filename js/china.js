@@ -60,3 +60,47 @@
                 {"type": "Feature","properties":{"id":"81","name":"香港","cp":[114.2578,22.3242],"childNum":1},"geometry":{"type":"Polygon","coordinates":[[[114.6094,22.4121],[114.5215,22.1484],[114.3457,22.1484],[113.9063,22.1484],[113.8184,22.1924],[113.9063,22.4121],[114.1699,22.5439],[114.3457,22.5439],[114.4336,22.5439],[114.4336,22.4121],[114.6094,22.4121]]]}},
                 {"type": "Feature","properties":{"id":"82","name":"澳门","cp":[113.5547,22.1484],"childNum":1},"geometry":{"type":"Polygon","coordinates":[[[113.5986,22.1649],[113.6096,22.1265],[113.5547,22.11],[113.5437,22.2034],[113.5767,22.2034],[113.5986,22.1649]]]}}
             ]})}));
+// 基于准备好的dom，初始化echarts实例
+var mapBoxEchart = echarts.init(document.getElementById('mapBox'));
+
+// 指定相关的配置项和数据
+var mapBoxOption = {
+    series: [{
+        type: 'map',
+        mapType: 'china',
+        label: {
+            normal: {
+                show: true, //显示省份标签
+                textStyle: {
+                    color: "blue"
+                } //省份标签字体颜色
+            },
+            emphasis: { //对应的鼠标悬浮效果
+                show: false,
+                textStyle: {
+                    color: "#800080"
+                }
+            }
+        },
+        aspectScale: 0.75,//这个参数用于 scale 地图的长宽比。最终的 aspect 的计算方式是：geoBoundingRect.width / geoBoundingRect.height * aspectScale
+        zoom: 1,//当前视角的缩放比例。
+        itemStyle: {
+            normal: {
+                borderWidth: .5, //区域边框宽度
+                borderColor: '#009fe8', //区域边框颜色
+                areaColor: "#FF5000", //区域颜色
+            },
+            emphasis: {//鼠标滑过地图高亮的相关设置
+                borderWidth: .5,
+                borderColor: '#4b0082',
+                areaColor: "#ffdead",
+            }
+        }
+    }]
+};
+// 使用制定的配置项和数据显示图表
+mapBoxEchart.setOption(mapBoxOption);
+// echart图表自适应
+window.addEventListener("resize", function() {
+    mapBoxEchart.resize();
+});

@@ -3,41 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/rem.js"></script>
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/echarts.min.js"></script>
-    <script src="js/china.js"></script>
 </head>
 <body>
+<div class="remDiv">
 
-<div class="chart-wrapper fl">
-    <span class="tit">备案情况</span>  
-    <div id="box1" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
-</div>
-<div class="chart-wrapper fr">
-    <span class="tit">在售设备类型比例</span>
-    <div id="box2" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
-</div>
-<div class="chart-wrapper fl" style="clear:both;">
-    <span class="tit">经营主体总量排名TOP5</span>
-    <div id="box3" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
-</div>
-<div class="chart-wrapper fr">
-    <span class="tit">近半年新增主体曲线图</span>
-    <div id="box4" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
-</div>
-<div class="chart-wrapper fl" style="clear: both;">
-    <span class="tit">销售种类排名TOP5</span>
-    <div id="box5" style="width:400px;height:260px;border:1px solid #ccc;float:left"></div>
-</div>
-<div class="chart-wrapper fr">
-    <span class="tit">进一个月热门商品</span>
-    <div id="box6" style="width:400px;height:260px;border:1px solid #ccc;float:right"></div>
-</div>
-<!--//装载数据表的容器-->
-<div class="china" style="position: absolute;z-index:-999;">
-    <iframe src="china.html" frameborder="0" style="width: 900px;height: 900px;"></iframe>
-</div>
+    <div class="chart-wrapper fl">
+        <span class="tit">备案情况</span>
+        <div id="box1" class="boxStyle"></div>
+    </div>
+    <div class="chart-wrapper fr">
+        <span class="tit">在售设备类型比例</span>
+        <div id="box2" class="boxStyle"></div>
+    </div>
+    <div class="chart-wrapper fl" style="clear:both;">
+        <span class="tit">经营主体总量排名TOP5</span>
+        <div id="box3" class="boxStyle"></div>
+    </div>
+    <div class="chart-wrapper fr">
+        <span class="tit">近半年新增主体曲线图</span>
+        <div id="box4" class="boxStyle"></div>
+    </div>
+    <div class="chart-wrapper fl" style="clear: both;">
+        <span class="tit">销售种类排名TOP5</span>
+        <div id="box5" class="boxStyle"></div>
+    </div>
+    <div class="chart-wrapper fr">
+        <span class="tit">进一个月热门商品</span>
+        <div id="box6" class="boxStyle"></div>
+    </div>
+    <!--//装载数据表的容器-->
+    <div class="china">
+        <div id="mapBox" class="centerItem"></div>
+    </div>
 
+</div>
+<script src="js/echarts.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
+<script src="js/china.js"></script>
+
 </body>
 </html>
