@@ -79,6 +79,7 @@ var mapBoxOption = {
             color: ['lightskyblue','yellow', 'orangered']
         }
     },
+    legend: {},
     series: [{
         type: 'map',
         mapType: 'china',
