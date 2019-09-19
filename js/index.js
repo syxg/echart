@@ -35,35 +35,51 @@ option1 = {
 
 var myChart2 = echarts.init(document.getElementById('box2'))
 
-var data = genData(50);
+var data = {
+    "legendData": ["LTE FDD终端", "秦杜·邵", "袁纪", "皮许", "鲁元昌贾彭·马沈"],
+    "seriesData": [{"name": "LTE FDD终端", "value": 74373}, {"name": "秦杜·邵", "value": 86230}, {
+        "name": "袁纪",
+        "value": 77491
+    }, {"name": "皮许", "value": 17399}, {"name": "鲁元昌贾彭·马沈", "value": 27422}],
+    "selected": {"LTE FDD终端": true, "秦杜·邵": true, "袁纪": true, "皮许": true, "鲁元昌贾彭·马沈": true}
+}
+
 
 option2 = {
-    title : {
-        text: '同名数量统计',
-        subtext: '纯属虚构',
-        x:'center'
-    },
-    tooltip : {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
+    // title : {
+    //     text: '同名数量统计',
+    //     subtext: '纯属虚构',
+    //     x:'center'
+    // },
+    // tooltip : {
+    //     trigger: 'item',
+    //     formatter: "{a} <br/>{b} : {c} ({d}%)"
+    // },
+
     legend: {
-        type: 'scroll',
-        orient: 'vertical',
+        type: 'plain',
+        orient: 'horizontal',
         right: 10,
-        top: 20,
-        bottom: 20,
+        left: 10,
+        bottom: 0,
         data: data.legendData,
 
         selected: data.selected
     },
-
     series : [
         {
             name: '姓名',
             type: 'pie',
-            radius: ['50%', '70%'],
-            center: ['40%', '50%'],
+            radius: ['20%', '30%'],
+            center: ['50%', '40%'],
+            label: {
+                normal: {
+                    formatter: '{b}\n{d}%  ',
+                    rich:{
+                        width:10
+                    }
+                }
+            },
             data: data.seriesData,
             itemStyle: {
                 emphasis: {
@@ -76,40 +92,6 @@ option2 = {
     ]
 };
 
-function genData(count) {
-    var nameList = [
-        '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '冯', '陈', '褚', '卫', '蒋', '沈', '韩', '杨', '朱', '秦', '尤', '许', '何', '吕', '施', '张', '孔', '曹', '严', '华', '金', '魏', '陶', '姜', '戚', '谢', '邹', '喻', '柏', '水', '窦', '章', '云', '苏', '潘', '葛', '奚', '范', '彭', '郎', '鲁', '韦', '昌', '马', '苗', '凤', '花', '方', '俞', '任', '袁', '柳', '酆', '鲍', '史', '唐', '费', '廉', '岑', '薛', '雷', '贺', '倪', '汤', '滕', '殷', '罗', '毕', '郝', '邬', '安', '常', '乐', '于', '时', '傅', '皮', '卞', '齐', '康', '伍', '余', '元', '卜', '顾', '孟', '平', '黄', '和', '穆', '萧', '尹', '姚', '邵', '湛', '汪', '祁', '毛', '禹', '狄', '米', '贝', '明', '臧', '计', '伏', '成', '戴', '谈', '宋', '茅', '庞', '熊', '纪', '舒', '屈', '项', '祝', '董', '梁', '杜', '阮', '蓝', '闵', '席', '季', '麻', '强', '贾', '路', '娄', '危'
-    ];
-    var legendData = [];
-    var seriesData = [];
-    var selected = {};
-    for (var i = 0; i < 50; i++) {
-        var name = Math.random() > 0.65
-            ? makeWord(4, 1) + '·' + makeWord(3, 0)
-            : makeWord(2, 1);
-        legendData.push(name);
-        seriesData.push({
-            name: name,
-            value: Math.round(Math.random() * 100000)
-        });
-        selected[name] = i < 6;
-    }
-
-    return {
-        legendData: legendData,
-        seriesData: seriesData,
-        selected: selected
-    };
-
-    function makeWord(max, min) {
-        var nameLen = Math.ceil(Math.random() * max + min);
-        var name = [];
-        for (var i = 0; i < nameLen; i++) {
-            name.push(nameList[Math.round(Math.random() * nameList.length - 1)]);
-        }
-        return name.join('');
-    }
-}
 
 var myChart3 = echarts.init(document.getElementById('box3')) //获取装载数据表的容器
 
@@ -206,12 +188,12 @@ var category = ['NO.5福建省', 'NO.4四川省', 'NO.3湖北省', 'NO.2陕西�
 var barData = [26, 26, 30, 71, 76];
 
 var option5 = {
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
-    },
+    // tooltip: {
+    //     //     trigger: 'axis',
+    //     //     axisPointer: {
+    //     //         type: 'shadow'
+    //     //     }
+    //     // },
     grid: {
         left: '3%',
         right: '4%',
@@ -257,7 +239,7 @@ var option5 = {
                 normal: {
                     show: true,
                     position: 'right',
-                    offset: [5, -2],
+                    offset: [-3, -2],
                     textStyle: {
                         color: '#F68300',
                         fontSize: 13
