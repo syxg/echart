@@ -67,6 +67,18 @@ var mapBoxEchart = echarts.init(document.getElementById('mapBox'));
 
 // 指定相关的配置项和数据
 var mapBoxOption = {
+    visualMap: {
+        min: 800,
+        max: 50000,
+        left:"center",
+        orient:"horizontal",
+        text:['High','Low'],
+        realtime: false,
+        calculable: true,
+        inRange: {
+            color: ['lightskyblue','yellow', 'orangered']
+        }
+    },
     series: [{
         type: 'map',
         mapType: 'china',
@@ -97,7 +109,12 @@ var mapBoxOption = {
                 borderColor: '#4b0082',
                 areaColor: "#ffdead",
             }
-        }
+        },
+        data:[
+            {name: '新疆', value: 20000},
+            {name: '西藏', value: 1000},
+            {name: '内蒙古', value: 1300}
+        ],
     }]
 };
 // 使用制定的配置项和数据显示图表
