@@ -74,8 +74,8 @@
 var mapBoxEchart = echarts.init(document.getElementById('mapBox'));
 
 // 指定相关的配置项和数据
-var mapBoxOption = {
-    geo: {
+var mapBoxOption ={
+    /*geo: {
         map: 'xinjiang',
         label: {
             emphasis: {
@@ -83,7 +83,7 @@ var mapBoxOption = {
             }
         },
         roam: true
-    },
+    },*/
     visualMap: {
         min: 800,
         max: 50000,
@@ -100,6 +100,7 @@ var mapBoxOption = {
     series: [{
         type: 'map',
         mapType: 'xinjiang',
+        roam: true,
         label: {
             normal: {
                 show: true, //显示省份标签
@@ -128,11 +129,11 @@ var mapBoxOption = {
                 areaColor: "#ffdead",
             }
         },
-        // data:[
-        //     {name: '新疆', value: 20000},
-        //     {name: '西藏', value: 1000},
-        //     {name: '内蒙古', value: 1300}
-        // ],
+        data:[
+            {name: '哈密市', value: 20000},
+            {name: '博尔塔拉蒙古自治州', value: 1000},
+            {name: '巴音郭楞蒙古自治州', value: 1300}
+        ],
     }]
 };
 // 使用制定的配置项和数据显示图表
