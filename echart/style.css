@@ -1,0 +1,28 @@
+      .fl{
+         float:left;
+         margin-left:10px;
+      }
+      .fr{
+         float:right;
+         margin-right:10px;
+      }
+      .clearfix:after, .clearfix:before{
+         display:table;
+         content:"";
+      }
+      .clearfix:after{
+         clear:both;
+      }
+      .echarts-bottom{
+         margin-top: 30px;
+      }
+      .justy-algin{
+         display:inline-block;
+         width:48%;
+         
+      }
+      .echarts-top #top_left,.echarts-top #top_right,
+      .echarts-bottom #bottom_left,
+      .echarts-bottom #bottom_right{
+         margin-top: -32px;
+      }
